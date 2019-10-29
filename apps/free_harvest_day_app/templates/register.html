@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h1>Register Page</h1>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <a href="/">Login here</a>
+        <form action="/process_register" method="post">
+            {%csrf_token%}
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" class="form-control mb-3" id="first_name">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" class="form-control mb-3" id="last_name">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="form-control mb-3" id="email">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control mb-3" id="password">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" class="form-control mb-3" id="confirm_password">
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="age_group">Age Group (select one):</label>
+                    <select name="age_group" id="age_group">
+                        <option value="children">Child (0-12 years)</option>
+                        <option value="youth">Youth (13-17)</option>
+                        <option value="young_adult">Young Adult (18-32)</option>
+                        <option value="adult">Adult ( 32-60)</option>
+                        <option value="elderly">Elderly (61+)</option>
+                    </select>
+                </div>
+                <div class="col mb-3">
+                    <label for="ethnicity">Ethnicity (select one):</label>
+                    <select name="ethnicity" id="ethnicity">
+                        <option value="age_group">Black/African American</option>
+                        <option value="children">Latino/Hispanic</option>
+                        <option value="youth">White</option>
+                        <option value="young_adult">Asian</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="px-md-3">Create Account</button>
+        </form>
+    </div>
+
+
+
+
+    <!-- <input type="password" name="confirm_password" class="form-control mb-3" id="confirm_password">
+            <select name="age_group" id="age_group" class="required">
+                <option value="age_group" selected="true" disabled="disabled" >Age Group</option>
+                <option value="children">Children (0-12 years)</option>
+                <option value="youth">Youth (13-17)</option>
+                <option value="young_adult">Young Adult (18-32)</option>
+                <option value="adult">Adult ( 32-60)</option>
+                <option value="elderly">Elderly (61+)</option>
+            </select>
+            <select name="ethnicity" id="ethnicity">
+                <option value="ethnicity" selected="true" disabled="disabled">Ethnicity</option>
+                <option value="age_group">Black/African American</option>
+                <option value="children">Latino/Hispanic</option>
+                <option value="youth">White</option>
+                <option value="young_adult">Asian</option>
+            </select> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
