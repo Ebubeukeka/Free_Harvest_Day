@@ -4,7 +4,7 @@ from django.contrib import messages
 import bcrypt
 
 def index(request):
-    return render(request, 'login.html')
+    return render(request, 'home.html')
 
 
 def register(request):
