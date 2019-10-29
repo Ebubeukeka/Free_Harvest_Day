@@ -20,7 +20,7 @@
             {% endfor %}
         </ul>
         {% endif %}
-        <a href="/">Login here</a>
+        <a href="/login">Login here</a>
         <form action="/process_register" method="post">
             {%csrf_token%}
             <label for="first_name">First Name:</label>
@@ -56,6 +56,7 @@
             </div>
             <button type="submit" class="px-md-3">Create Account</button>
         </form>
+        <a href="/">Go Back to Home</a>
     </div>
 
 
