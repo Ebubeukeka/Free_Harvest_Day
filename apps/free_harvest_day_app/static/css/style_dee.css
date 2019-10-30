@@ -1,0 +1,53 @@
+*{
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(134, 79, 134);
+}
+
+.harvest_logo {
+    width: 100px;
+}
+
+.header {
+background-color: rgb(233, 240, 243);
+}
+
+.header h1 {
+    display: inline-block;
+    margin: 0px;
+
+}
+.header p {
+    display: inline-block;
+    font-size: 40px;
+    margin-left: 315px;
+
+
+}
+.main-content  img {
+    width: 340px;
+    display: inline-block;
+    border: solid gray 7px;
+}
+.main-content div {
+    display: inline-block;
+    font-size: 11pt;
+    width: 468px;
+    margin-left: 40px;
+}
+.main-content div h1, .trio div h1, h2 {
+    background-color: #9b9494ce;
+    margin: 0px;
+    color: white;
+}
+.main-content div p {
+    background-color: white;
+    margin: 0px;
+    min-height: 235px;
+    font-size: 13pt;
+}
+
+

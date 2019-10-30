@@ -4,11 +4,29 @@ from django.contrib import messages
 import bcrypt
 
 def index(request):
+    return render(request, 'home.html')
+
+def login(request):
     return render(request, 'login.html')
 
 
 def register(request):
     return render(request, 'register.html')
+
+def community(request):
+    return render(request, 'community.html')
+
+def about_dee(request):
+    return render(request, 'about_dee.html')
+
+def about_qiana(request):
+    return render(request, 'about_qiana.html')
+
+def about_kc(request):
+    return render(request, 'about_kc.html')
+
+def contact_us(request):
+    return render(request, 'contact_us.html')
 
 
 def process_register(request):
@@ -40,6 +58,17 @@ def process_login(request):
             request.session['user_id'] = user.id
             messages.success(request, 'Successfully Loged in')
             return redirect('/welcome')
+
+def process_contact(request):
+    errors = Contact.objects.contact_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return render(request,'contact_us.html')
+    else:
+        Contact.objects.create(name = request.POST['name'], contact_email = request.POST['contact_email'], message = request.POST['message'],)
+        messages.success(request, 'Successfully RegisterSent')
+        return redirect('/')
 
 def welcome(request):
     if 'user_id' not in request.session:
