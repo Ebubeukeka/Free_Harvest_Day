@@ -1,0 +1,2 @@
+need to take long & lat information fron url 
+plug url info into automatic garden search
