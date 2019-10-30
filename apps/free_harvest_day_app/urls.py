@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^contact_us$', views.contact_us),
     url(r'^process_register$', views.process_register),
     url(r'^process_login$', views.process_login),
+    url(r'^process_contact$', views.process_contact),
     url(r'^welcome$', views.welcome),
     url(r'^logout$', views.logout),
 ]

@@ -59,6 +59,17 @@ def process_login(request):
             messages.success(request, 'Successfully Loged in')
             return redirect('/welcome')
 
+def process_contact(request):
+    errors = Contact.objects.contact_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return render(request,'contact_us.html')
+    else:
+        Contact.objects.create(name = request.POST['name'], contact_email = request.POST['contact_email'], message = request.POST['message'],)
+        messages.success(request, 'Successfully RegisterSent')
+        return redirect('/')
+
 def welcome(request):
     if 'user_id' not in request.session:
         message.error(request, 'Please log in or register')

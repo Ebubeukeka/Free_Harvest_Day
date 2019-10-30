@@ -34,3 +34,20 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
+
+class ContactManager(models.Manager):
+    def contact_validator(self, postData):
+        errors = {}
+        if len(postData['name']) < 1:
+            errors["first_name"] = "Please provide a name"
+        if not email_regex.match(postData['contact_email']):
+            errors["email"] = "Invalid email address"
+        return errors
+
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    contact_email = models.CharField(max_length=255)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = ContactManager()
