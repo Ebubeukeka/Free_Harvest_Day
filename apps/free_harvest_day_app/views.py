@@ -6,13 +6,27 @@ import bcrypt
 def index(request):
     return render(request, 'home.html')
 
-
 def login(request):
     return render(request, 'login.html')
 
 
 def register(request):
     return render(request, 'register.html')
+
+def community(request):
+    return render(request, 'community.html')
+
+def about_dee(request):
+    return render(request, 'about_dee.html')
+
+def about_qiana(request):
+    return render(request, 'about_qiana.html')
+
+def about_kc(request):
+    return render(request, 'about_kc.html')
+
+def contact_us(request):
+    return render(request, 'contact_us.html')
 
 
 def process_register(request):
