@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import *
 from django.contrib import messages
-import bcrypt
+# import bcrypt
 
 def index(request):
-    return render(request, 'login.html')
+    return render(request, 'events.html')
 
 
 def register(request):
