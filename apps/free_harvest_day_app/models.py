@@ -51,3 +51,9 @@ class Contact(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = ContactManager()
+
+class Staff(models.Model):
+    name = models.CharField(max_length=255)
+    bio = models.TextField()
+    occupation = models.CharField(max_length=255)
+    linkedin = models.CharField(max_length=255)

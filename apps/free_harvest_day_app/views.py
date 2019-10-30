@@ -16,14 +16,13 @@ def register(request):
 def community(request):
     return render(request, 'community.html')
 
-def about_dee(request):
-    return render(request, 'about_dee.html')
+def about(request, staff_id):
+    staff = Staff.objects.get(id=staff_id)
+    context = {
+    "staff" : staff
+    }
+    return render(request, 'about_staff.html', context)
 
-def about_qiana(request):
-    return render(request, 'about_qiana.html')
-
-def about_kc(request):
-    return render(request, 'about_kc.html')
 
 def contact_us(request):
     return render(request, 'contact_us.html')

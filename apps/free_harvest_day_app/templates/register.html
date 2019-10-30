@@ -7,11 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .bg-garden {
+                background-color: rgba(72, 148, 72, 0.616);
+                background-size: cover;
+            }
+        </style>
     <title>Register</title>
 </head>
 
-<body>
-    <div class="container mt-3">
+<body class="bg-garden">
+    <div class="container mt-3 border border-success rounded w-50 text-center">
         <h1>Register Page</h1>
         {% if messages %}
         <ul class="messages">
@@ -21,7 +27,7 @@
         </ul>
         {% endif %}
         <a href="/login">Login here</a>
-        <form action="/process_register" method="post">
+        <form action="/process_register" method="post" class="p-4">
             {%csrf_token%}
             <label for="first_name">First Name:</label>
             <input type="text" name="first_name" class="form-control mb-3" id="first_name">
@@ -56,7 +62,12 @@
             </div>
             <button type="submit" class="px-md-3">Create Account</button>
         </form>
+        <div class="row">
+            <div class="col">
         <a href="/">Go Back to Home</a>
+            </div>
+        </div>
+        <a href="/login">Login here</a>
     </div>
 
 
