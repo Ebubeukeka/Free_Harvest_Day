@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.indiv_garden_info',
     'apps.free_harvest_day_app',
     'django.contrib.admin',
     'django.contrib.auth',
