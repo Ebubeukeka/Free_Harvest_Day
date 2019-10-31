@@ -9,12 +9,17 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+def food_deserts(request):
+    return render(request, 'food_deserts.html')
 
 def register(request):
     return render(request, 'register.html')
 
 def community(request):
     return render(request, 'community.html')
+    
+def events(request):
+    return render(request, 'events.html')
 
 def about(request, staff_id):
     staff = Staff.objects.get(id=staff_id)
@@ -66,7 +71,7 @@ def process_contact(request):
         return render(request,'contact_us.html')
     else:
         Contact.objects.create(name = request.POST['name'], contact_email = request.POST['contact_email'], message = request.POST['message'],)
-        messages.success(request, 'Successfully RegisterSent')
+        messages.success(request, 'Information Successfully Sent')
         return redirect('/')
 
 def welcome(request):

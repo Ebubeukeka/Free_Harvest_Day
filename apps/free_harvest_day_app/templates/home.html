@@ -9,17 +9,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .bg-garden {
+            background-color: rgba(72, 148, 72, 0.616);
+            background-size: cover;
+        }
+    </style>
     <title>Welcome Page</title>
 </head>
 
-<body>
+<body class="bg-garden">
     <div class="container">
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <div class="header d-inline">
             <div class="row">
                 <div class="col">
                     <img src="{% static 'images/veggies.jpg'%}" alt="" class="harvest_logo">
                 </div>
                 <div class="col">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                     <h1>Free Harvest Day!</h1>
                 </div>
                 <div class="col">
@@ -36,7 +57,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active f-size">
-                                    <a class="nav-link mr-4" href="#">Harvest Day <span
+                                    <a class="nav-link mr-4" href="/food_deserts">Food Deserts<span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item f-size">
@@ -55,7 +76,7 @@
                                     <a class="nav-link ml-5" href="/contact_us"> Contact Us </a>
                                 </li>
                                 <li class="nav-item f-size">
-                                    <a class="nav-link ml-5" href="/">Events</a>
+                                    <a class="nav-link ml-5" href="/events">Events</a>
                                 </li>
                                 <li class="nav-item f-size">
                                     <a class="nav-link ml-5" href="/Gardens"> Gardens</a>
@@ -76,22 +97,34 @@
         <h1>Welcome</h1>
         <div class="container mt-3">
             <img src="{% static 'free_harvest_day_app/images/harvest pic.png' %}" alt="Locally Grown">
-        <header>
-            <p><span class="">Call Us:(123)456-7890</span>
+            <header>
+                <p><span class="">Call Us:(123)456-7890</span>
+                </p>
+            </header>
+            <p>This Community arvest Garden was created by three dynamic Full-Stack Developers Qiana, KC and Dee from
+                Coding Dojo.</p>
+            <p> Our mission is to bring Fresh Organic Produce to areas of the city which are pleagued by food deserts.
+                We realize there are families that can't afford to purchase these necessities and by placing these
+                gardens in the areas mentioned we'd be giving our communities a chance to grow, learn also care for the
+                produce which they will be able to harvest and bring home to feed their households.</p>
+            <p>We started the ground work by mapping our areas in the city that are affected by this, however we are
+                looking to further our search with the help of any and eveyone that wants to get involved in helping us
+                locate and or volunteer in our effort to help our local communities.
             </p>
-        </header>
-        <p>This Community arvest Garden was created by three dynamic Full-Stack Developers Qiana, KC and Dee from Coding Dojo.</p>
-        <p> Our mission is to bring Fresh Organic Produce to areas of the city which are pleagued by food deserts. We realize there are families that can't afford to purchase these necessities and by placing these gardens in the areas mentioned we'd be giving our communities a chance to grow, learn also care for the produce which they will be able to harvest and bring home to feed their households.</p>
-        <p>We started the ground work by mapping our areas in the city that are affected by this, however we are looking to further our search with the help of any and eveyone that wants to get involved in helping us locate and or volunteer in our effort to help our local communities.
-        </p>
-        <p>If this is idea sounds like something you'd like to be apart of please click below:</p>
+            <p>If this is idea sounds like something you'd like to be apart of please click below:</p>
 
-        <button type="button">Click Me!</button>
-    </div>
+            <button type="button">Click Me!</button>
+        </div>
         <h3>What are food deserts?</h3>
-        <p>Food deserts are defined as parts of the country vapid of fresh fruit, vegetables, and other healthful whole foods, usually found in impoverished areas. This is largely due to a lack of grocery stores, farmers’ markets, and healthy food providers.</p>
+        <p>Food deserts are defined as parts of the country vapid of fresh fruit, vegetables, and other healthful whole
+            foods, usually found in impoverished areas. This is largely due to a lack of grocery stores, farmers’
+            markets, and healthy food providers.</p>
         <p>
-            This has become a big problem because while food deserts are often short on whole food providers, especiallyfresh fruits and vegetables, instead, they are heavy on local quickie marts that provide a wealth of processed, sugar, and fat laden foods that are known contributors to our nation’s obesity epidemic. The food desert problem has in fact become such an issue that the USDA has outlined a map of our nation’s food deserts, which I saw on Mother Nature Network.
+            This has become a big problem because while food deserts are often short on whole food providers,
+            especiallyfresh fruits and vegetables, instead, they are heavy on local quickie marts that provide a wealth
+            of processed, sugar, and fat laden foods that are known contributors to our nation’s obesity epidemic. The
+            food desert problem has in fact become such an issue that the USDA has outlined a map of our nation’s food
+            deserts, which I saw on Mother Nature Network.
 
         </p>
 
