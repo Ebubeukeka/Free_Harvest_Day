@@ -8,93 +8,93 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'css/style_about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_about.css' %}">
     <style>
         .back-color {
-                background-color: rgba(72, 148, 72, 0.616);
-                background-size: cover;
+            background-color: rgba(72, 148, 72, 0.616);
+            background-size: cover;
         }
-        
+
 
         .f-size {
             font-size: 28pt;
         }
-
     </style>
     <title>About {{staff.name}}</title>
 
 </head>
 
 <body class="back-color">
-    
-        <div class="container mb-4 mt-2">
-                <div class="header d-inline">
-                    <div class="row">
-                        <div class="col">
-                            <img src="{% static 'images/web_developer.jpg'%}" alt="" class="web_dev">
-                        </div>
-                        <div class="col">
-                            <h1>About Us</h1>
-                        </div>
-                        <div class="col">
-                            <a href="/login">Login Here</a> |
-                            <a href="/">Back Home</a>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="header d-inline">
+            <div class="row">
+                <div class="col">
+                    <img src="{% static 'images/web_developer.jpg'%}" alt="" class="web_dev">
                 </div>
-        
-                <div class="pos-f-t mt-2">
-                    <div class="collapse" id="navbarToggleExternalContent">
-                        <div class="bg-dark">
-                            <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active f-size">
-                                            <a class="nav-link mr-4" href="/food_deserts">Food Deserts<span
-                                                    class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="nav-item f-size">
-                                            <a class="nav-link ml-5" href="/community">Community </a>
-                                        </li>
-                                        <li class="nav-item dropdown f-size">
-                                            <a class="nav-link dropdown-toggle ml-5" href="/" id="navbarDropdown" role="button"
-                                                data-toggle="dropdown">About Us</a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown f-size">
-                                                <a class="dropdown-item" href="/about_us/1">Dee</a>
-                                                <a class="dropdown-item" href="/about_us/2">Qiana</a>
-                                                <a class="dropdown-item" href="/about_us/3">KC</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item f-size">
-                                            <a class="nav-link ml-5" href="/contact_us"> Contact Us </a>
-                                        </li>
-                                        <li class="nav-item f-size">
-                                            <a class="nav-link ml-5" href="/events">Events</a>
-                                        </li>
-                                        <li class="nav-item f-size">
-                                            <a class="nav-link ml-5" href="/Gardens"> Gardens</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
+                <div class="col">
+                    <h1>About Us</h1>
+                </div>
+                <div class="col">
+                    <a href="/login">Login Here</a> |
+                    <a href="/">Back Home</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active f-size">
+                                    <a class="nav-link mr-4" href="/food_deserts">Food Deserts<span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/community">Community </a>
+                                </li>
+                                <li class="nav-item dropdown f-size">
+                                    <a class="nav-link dropdown-toggle ml-5" href="/" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown">About Us</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown f-size">
+                                        <a class="dropdown-item" href="/about_us/1">Dee</a>
+                                        <a class="dropdown-item" href="/about_us/2">Qiana</a>
+                                        <a class="dropdown-item" href="/about_us/3">KC</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/contact_us"> Contact Us </a>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/events">Events</a>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/Gardens"> Gardens</a>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
-                    <nav class="navbar navbar-dark bg-dark">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
                     </nav>
                 </div>
             </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    </div>
+    <div class="container mb-4 mt-2">
+    </div>
     <div class="container">
         <div class="row border border-dark">
             <div class="col">
-            <h1 class="d-inline f-size"><strong>{{staff.name}}</strong></h1>
+                <h1 class="d-inline f-size"><strong>{{staff.name}}</strong></h1>
             </div>
             <div class="col">
-            <p class="d-inline f-size"><strong>{{staff.occupation}}</strong></p>
+                <p class="d-inline f-size"><strong>{{staff.occupation}}</strong></p>
             </div>
         </div>
         <div class="row">
@@ -104,9 +104,9 @@
             <div class="col align-self-stretch border border-dark">
                 <h1 class="text-center border border-dark"> About...</h1>
                 <div class="border border-dark">
-                <p>{{staff.bio}}
-                    <br>
-                    <p>Read more Here <a href="http://{{staff.linkedin}}">link</a></p>
+                    <p>{{staff.bio}}
+                        <br>
+                        <p>Read more Here <a href="http://{{staff.linkedin}}">link</a></p>
                 </div>
                 </p>
             </div>
