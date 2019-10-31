@@ -12,11 +12,17 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style_events.css'%}">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    
+    <style>
+        .bg-garden {
+            background-color: rgba(72, 148, 72, 0.616);
+            background-size: cover;
+        }
+    </style>
     <title>Events</title>
 </head>
 
-<body>
+<body class="bg-garden">
+    <center>
     <div class="has-animation animation-ltr" data-delay="10">
         <p class="bigger">Upcoming Events </p>
     </div>
@@ -39,8 +45,14 @@
     <br>
     <br>
     <div class="has-animation animation-rtl" data-delay="2000">
-        <img src="https://placeimg.com/640/480/nature" width="600" />
+        <img src="{% static 'images/community_gathering.jpg'%}" width="600" />
     </div>
+
+
+
+
+    </center>
+
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{% static 'js/leaf.js' %}"></script>
