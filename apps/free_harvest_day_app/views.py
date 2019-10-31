@@ -10,6 +10,10 @@ def index(request):
 def register(request):
     return render(request, 'register.html')
 
+def gardens(request):
+    return render(request, 'gardens.html')
+
+
 
 def process_register(request):
     errors = User.objects.register_validator(request.POST)
