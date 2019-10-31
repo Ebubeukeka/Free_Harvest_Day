@@ -76,8 +76,11 @@ def process_contact(request):
 
 def welcome(request):
     if 'user_id' not in request.session:
-        messages.error(request, '')
-        return render (request, 'home.html')
+        # messages.error(request, '')
+        context ={
+            "not_logged" : True
+        }
+        return render (request, 'home.html', context)
     else:
         logged_user = User.objects.get(id=request.session['user_id'])
         context = {

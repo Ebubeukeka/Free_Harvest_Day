@@ -57,3 +57,4 @@ class Staff(models.Model):
     bio = models.TextField()
     occupation = models.CharField(max_length=255)
     linkedin = models.CharField(max_length=255)
+    profile_pic_url = models.CharField(max_length=255)

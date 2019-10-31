@@ -87,15 +87,14 @@
                 </button>
             </nav>
         </div>
-            <center>
-        <h1>Welcome {{user.first_name}}!</h1>
-        <div class="container mt-3">
+        <center>
+            <h1>Welcome {{user.first_name}}!</h1>
+            <div class="container mt-3">
 
-<img src="{% static 'images/group.jpg' %}" alt="Locally Grown" style="width: 300px;"">
-            </center>
+                <img src="{% static 'images/group.jpg' %}" alt="Locally Grown" style="width: 300px;"">
             
             <header>
-                <p><span>Call Us:(123)456-7890</span>
+                <p><span style="font: bold;">Call Us:(123)-456-7890</span>
                 </p>
             </header>
             <p>This Community Harvest Garden was created by three dynamic Full-Stack Developers Qiana, KC and Dee from
@@ -110,11 +109,34 @@
             </p>
             <p>If this is idea sounds like something you'd like to be apart of please click below:</p>
 
-            <a href="/register"><button type="button">Click Here!</button></a>
-        </div>
-
+            <a href="/register" class="btn btn-primary">Click here!</a>
+        </center>
     </div>
 
+    </div>
+    {% if not_logged %}
+    <!-- modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-show="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Not User Logged in</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please log in or register</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- end modal -->
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -126,6 +148,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#myModal').modal();
+        })
+    </script>
 </body>
 
 </html>
