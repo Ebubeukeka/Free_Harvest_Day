@@ -3,8 +3,8 @@ from .models import *
 from django.contrib import messages
 import bcrypt
 
-def index(request):
-    return render(request, 'home.html')
+# def index(request):
+#     return render(request, 'home.html')
 
 def login(request):
     return render(request, 'login.html')
@@ -56,7 +56,7 @@ def process_login(request):
         user_set = User.objects.filter(email=request.POST['login_email'])
         user = user_set[0]
         if not bcrypt.checkpw(request.POST['login_password'].encode(), user.password.encode()):
-            message.error(request, 'Password incorrect')
+            messages.error(request, 'Password incorrect')
             return render (request, 'login.html')
         else:
             request.session['user_id'] = user.id
@@ -71,21 +71,25 @@ def process_contact(request):
         return render(request,'contact_us.html')
     else:
         Contact.objects.create(name = request.POST['name'], contact_email = request.POST['contact_email'], message = request.POST['message'],)
-        messages.success(request, 'Information Successfully Sent')
+        messages.success(request, 'Thank you, Information Successfully Sent!')
         return redirect('/')
 
 def welcome(request):
     if 'user_id' not in request.session:
-        message.error(request, 'Please log in or register')
-        return render ('login.html')
+        messages.error(request, '')
+        return render (request, 'home.html')
     else:
         logged_user = User.objects.get(id=request.session['user_id'])
         context = {
             'user' : logged_user
         }
-        return render(request, 'welcome.html', context)
+        return render(request, 'home.html', context)
 
 def logout(request):
-    request.session.clear()
-
-    return redirect('/')
+    if 'user_id' not in request.session:
+        messages.error(request, 'No User Logged in, Please Sign in or Register')
+        return render (request,'home.html')
+    else:
+        request.session.clear()
+        messages.success(request, 'Successfully Logged out')
+        return redirect('/')

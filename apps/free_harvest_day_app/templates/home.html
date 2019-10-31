@@ -20,14 +20,6 @@
 
 <body class="bg-garden">
     <div class="container">
-
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
         <div class="header d-inline">
             <div class="row">
                 <div class="col">
@@ -45,7 +37,8 @@
                 </div>
                 <div class="col">
                     <a href="/login">Login Here</a> |
-                    <a href="/register">Register Here</a>
+                    <a href="/register">Register Here</a> |
+                    <a href="/logout">Logout Here</a>
                 </div>
             </div>
         </div>
@@ -94,7 +87,7 @@
                 </button>
             </nav>
         </div>
-        <h1>Welcome</h1>
+        <h1>Welcome {{user.first_name}}!</h1>
         <div class="container mt-3">
             <img src="{% static 'free_harvest_day_app/images/harvest pic.png' %}" alt="Locally Grown">
             <header>
@@ -113,15 +106,10 @@
             </p>
             <p>If this is idea sounds like something you'd like to be apart of please click below:</p>
 
-           <a href="/register"><button type="button">Click Here!</button></a>
+            <a href="/register"><button type="button">Click Here!</button></a>
         </div>
-
+ 
     </div>
-
-
-
-
-
 
 
 
