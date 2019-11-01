@@ -1,0 +1,106 @@
+* {
+    vertical-align: top;
+    /* outline: 1px solid red; */
+}
+#a {
+    position: relative;
+    width: 800px;
+    height: 350px;
+    padding: 20px;
+    /* background: red; */
+}
+img {
+    /* position: relative; */
+    width: 800px;
+    height: 350px;
+}
+
+#window_button, input, textarea {
+    display: block;
+    margin: 5px;
+}
+
+#dot{
+    /* display: inline-block; */
+    position: absolute;
+    margin-left: 637px;
+    margin-top: 122px;
+    background-color: red;
+    width: 15px;
+    height: 15px;
+}
+
+#dot2 {
+    /* display: inline-block; */
+    position: absolute;
+    margin-left: 350px;
+    margin-top: 156px;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+}
+
+#dot3 {
+    /* display: inline-block; */
+    position: absolute;
+    margin-left: 220px;
+    margin-top: 60px;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+}
+.garden_display {
+    margin: 20px;
+    padding: 5px;
+    width: 350px;
+    height: 250px;
+    background-color: darkolivegreen;
+    display: inline-block;
+}
+
+.display_none {
+    display: none;
+}
+
+.display_block {
+    display: block;
+}
+.pop_up_wrapper, #new_volunteer_form {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 500px; /* Full width */
+    height: 500px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.window_info {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* form {
+    display:block;
+} */
+/* 
+.garden_vol {
+
+} */

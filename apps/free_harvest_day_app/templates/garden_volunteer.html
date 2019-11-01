@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Garden Map/Volunteer Registration</title>
+        <meta name="description" content="">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/garden_volunteer.css' %}">
+    </head>
+
+    <body> 
+        <a href="/logout">Logout here</a>
+        <div id="a">
+            <div id="dot"></div>
+            <div id="dot2"></div>
+            <div id="dot3"></div>
+            <img src="{% static 'images/map.png' %}">
+        </div>
+
+        {% if messages %}
+        <ul class='messages'>
+            {% for message in messages %}
+                <li class='{{message.tag}}'>{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <ul class='messages'>
+            <li class='success'>{{message}}</li>
+        </ul>
+
+        <div class="pop_up_wrapper display_none">
+            <form id="new_garden_form" action="/garden_registration" method="POST">
+                {% csrf_token %}
+                <span class="close" title="Close PopUp">&times;</span>
+                <h3>Register Garden/Garden Space</h3>
+                <input type="text" name="garden" placeholder="Enter Garden's Name">
+                <input type="text" name="garden_address" placeholder="Enter Garden's Address">
+                <input type="text" name="ward_num" placeholder="Enter Ward Number">
+                <input type="date" name="plant_date" value="Enter Next Planting Date">
+                <textarea name="plans" rows="10" placeholder="Enter Desired Plans for Garden"></textarea>
+                <button id= "window_button" type="submit">Register</button>
+            </form>
+        </div> <!--end of .pop_up_wrapper-->
+        <form id="new_volunteer_form" class="display_none" action="/volunteer_registration" method="POST">
+            {% csrf_token %}
+            <span class="close" title="Close PopUp">&times;</span>
+            <h3>Volunteer Sign-Up</h3>
+            <input id="garden_id" type="text" name="garden_id" placeholder="Enter Garden ID">
+            <input type="text" name="first_name" placeholder="Enter First Name">
+            <input type="text" name="email" placeholder="Enter Email">
+            <button id= "window_button" type="submit">Sign Up</button>
+        </form>
+        {% for garden in gardens %}
+        <div class="garden_display">
+            <p>{{garden.garden_img}}</p>
+            <p>ID: {{garden.id}}</p>
+            <p>Name: {{garden.garden}}</p>
+            <p>Garden Address: {{garden.garden_address}}</p>
+            <p>{{garden.map_x}}</p>
+            <p>Volunteers:</p>
+            <ul>{% for volunteer in volunteers%}
+                {% if volunteer in garden.users.all %}
+                <li>{{volunteer.first_name}} {{volunteer.last_name}}</li>
+                {% endif %}
+            </ul>{% endfor %}
+            <p>Garden Plans: {{garden.plans}}</p>
+        </div><!--end of .garden_display-->
+        {% endfor %}
+        
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{% static 'js/garden_popups.js' %}"></script>
+    </body>
+</html>

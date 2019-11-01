@@ -22,7 +22,7 @@ class UserManager(models.Manager):
         errors = {}
         if not email_regex.match(postData['login_email']):
             errors["login_email"] = "Invalid email address"
-        return errors
+            return errors
 
 class User(models.Model):
     first_name = models.CharField(max_length=45)
@@ -34,3 +34,13 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
+
+class Garden(models.Model):
+    garden = models.CharField(max_length=45)
+    garden_address = models.CharField(max_length=45)
+    ward_num = models.IntegerField()
+    plant_date = models.DateTimeField()
+    plans = models.TextField()
+    users = models.ManyToManyField(User, related_name="gardens")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

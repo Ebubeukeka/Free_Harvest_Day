@@ -43,8 +43,8 @@ def process_login(request):
 
 def welcome(request):
     if 'user_id' not in request.session:
-        message.error(request, 'Please log in or register')
-        return render ('login.html')
+        messages.error(request, 'Please log in or register')
+        return redirect ('/')
     else:
         logged_user = User.objects.get(id=request.session['user_id'])
         context = {
@@ -56,3 +56,33 @@ def logout(request):
     request.session.clear()
 
     return redirect('/')
+
+def garden_volunteer(request):
+    context = {
+        "gardens" : Garden.objects.all(),
+        "volunteers": User.objects.all()
+    }
+    return render(request,"garden_volunteer.html", context)
+
+def garden_registration(request):
+    if 'user_id' not in request.session:
+        messages.error(request, 'Please log in or register')
+        return redirect ("/")
+    else:
+        Garden.objects.create(garden=request.POST['garden'],garden_address=request.POST['garden_address'],ward_num=request.POST['ward_num'],plant_date=request.POST['plant_date'],plans=request.POST['plans'])
+        garden=Garden.objects.last()
+        garden_id=garden.id
+        return redirect("/garden_volunteer")
+
+def volunteer_registration(request):
+    if 'user_id' not in request.session:
+        messages.error(request, 'Please log in or register')
+        return redirect ("/")
+    else:
+        print('---------------------show id---------------')
+        space=Garden.objects.get(id=request.POST['garden_id'])
+        print(space.id)
+        volunteer=User.objects.get(id=request.session['user_id'])
+        print(volunteer.id)
+        space.users.add(volunteer)
+        return redirect('/garden_volunteer')
