@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static%}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style_events.css'%}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        .bg-garden {
+            background-color: rgba(72, 148, 72, 0.616);
+            background-size: cover;
+        }
+    </style>
     <title>Events</title>
 </head>
-<body>
-    <h1>UpComing Events:</h1>
-    <div class="container mt-3">
-            <img src="{% static 'free_harvest_day_app/images/harvest pic.png' %}" alt="Locally Grown">
+
+<body class="bg-garden">
+        <a href="/">Go Back</a>
+    <center>
+    <div class="has-animation animation-ltr" data-delay="10">
+        <p class="bigger">Upcoming Events </p>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="has-animation animation-rtl" data-delay="1000">
+        <p class="text h2">Please don't forget about the events below:</p>
+        <ul style="list-style-type: circle; color: green;">
+            <li><h3>Ground Breaking Ceremony TBA</h3></li>
+            <li><h3>Volunteer Celebration TBA</h3></li>
+            <li><h3>Plant A Seed Day March 19, 2020</h3></li>
+        </ul>
+
+    </div>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <div class="has-animation animation-rtl" data-delay="2000">
+        <img src="{% static 'images/community_gathering.jpg'%}" width="600" />
+    </div>
+
+    </center>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'js/leaf.js' %}"></script>
 </body>
 
 </html>

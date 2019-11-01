@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .bg-garden {
+            background-color: rgba(72, 148, 72, 0.616);
+            background-size: cover;
+        }
+    </style>
+    <title>Community Garde List</title>
+
+</head>
+
+<body class="bg-garden">
+    <div class="container">
+        <div class="header d-inline">
+            <div class="row">
+                <div class="col">
+                    <img src="{% static 'images/veggies.jpg'%}" alt="" class="harvest_logo">
+                </div>
+                <div class="col">
+                    <h1>Community Garden List</h1>
+                </div>
+                <div class="col">
+                    <a href="/login">Login Here</a> |
+                    <a href="/">Back Home</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active f-size">
+                                    <a class="nav-link mr-4" href="/food_deserts">Food Deserts<span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/community">Community </a>
+                                </li>
+                                <li class="nav-item dropdown f-size">
+                                    <a class="nav-link dropdown-toggle ml-5" href="/" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown">About Us</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown f-size">
+                                        <a class="dropdown-item" href="/about_us/1">Dee</a>
+                                        <a class="dropdown-item" href="/about_us/2">Qiana</a>
+                                        <a class="dropdown-item" href="/about_us/3">KC</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/contact_us"> Contact Us </a>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/events">Events</a>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/Gardens"> Gardens</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <!--whole browser page-->
+        <h1>Ward "#" Gardens</h1>
+        <div class="garden_box">
+            <h3>"Name of Garden"</h3>
+            <p>"Give address of garden"</p>
+            <!--image as button-->
+            <!--needs to hover with message-->
+            <img id="image_button" src="{% static 'images/bigGreen.jpg' %}" alt="Raised Garden">
+            <p>"Description of Garden...what is grown? Estimated date of harvest."</p>
+            <!--start of popup window-->
+            <div id="pop_up_wrapper" class="display_none reg_window">
+                <div class="window_info ">
+                    <!--/garden_registration-->
+                    <form action="/garden_registration" method="post">
+                        {% csrf_token %}
+                        <span class="close" title="Close PopUp">&times;</span>
+                        <!--need to accept downloaded picture-->
+                        <img class="pop_up_pic" src="{% static 'images/bigGreen.jpg' %}" alt="Raised Garden">
+                        <h3>Register Garden/Garden Space</h3>
+                        <input type="text" name="garden_name" placeholder="Enter Garden's Name">
+                        <input type="text" name="garden_address" placeholder="Enter Garden's Address">
+                        <input type="text" name="ward_num" placeholder="Enter Ward Number">
+                        <input type="date" name="plant_date" value="Enter Next Planting Date">
+
+
+
+                        <!-- <label for="garden_name">Garden Name:</label>
+                        <input type="text" name="garden_name" id="garden_name" placeholder="Enter Garden's Name">
+                        <label for="garden_address">Garden Address:</label>
+                        <input type="text" name="garden_address"  id="garden_address" placeholder="Enter Garden's Address">
+                        <label for="ward_num">Ward Number:</label>
+                        <input type="text" name="ward_num"  id="ward_num" placeholder="Enter Ward Number">
+                        <label for="plant_date">Plant Date:</label>
+                        <input type="date" name="plant_date"  id="plant_date" placeholder="Enter Next Planting Date"> -->
+
+
+                        <textarea name="plans" rows="10" placeholder="Enter Desired Plans for Garden"></textarea>
+                        <button id="window_button" type="submit">Register</button>
+                    </form>
+                </div>
+                <!--end of .window_info-->
+            </div>
+            <!--end of #pop_up_wrapper and .window-->
+            <!--end of popup window-->
+        </div>
+        <!--end of .garden_box-->
+    </div>
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

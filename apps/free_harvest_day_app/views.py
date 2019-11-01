@@ -3,27 +3,31 @@ from .models import *
 from django.contrib import messages
 import bcrypt
 
-def index(request):
-    return render(request, 'home.html')
+# def index(request):
+#     return render(request, 'home.html')
 
 def login(request):
     return render(request, 'login.html')
 
+def food_deserts(request):
+    return render(request, 'food_deserts.html')
 
 def register(request):
     return render(request, 'register.html')
 
 def community(request):
     return render(request, 'community.html')
+    
+def events(request):
+    return render(request, 'events.html')
 
-def about_dee(request):
-    return render(request, 'about_dee.html')
+def about(request, staff_id):
+    staff = Staff.objects.get(id=staff_id)
+    context = {
+    "staff" : staff
+    }
+    return render(request, 'about_staff.html', context)
 
-def about_qiana(request):
-    return render(request, 'about_qiana.html')
-
-def about_kc(request):
-    return render(request, 'about_kc.html')
 
 def contact_us(request):
     return render(request, 'contact_us.html')
@@ -52,7 +56,7 @@ def process_login(request):
         user_set = User.objects.filter(email=request.POST['login_email'])
         user = user_set[0]
         if not bcrypt.checkpw(request.POST['login_password'].encode(), user.password.encode()):
-            message.error(request, 'Password incorrect')
+            messages.error(request, 'Password incorrect')
             return render (request, 'login.html')
         else:
             request.session['user_id'] = user.id
@@ -67,21 +71,43 @@ def process_contact(request):
         return render(request,'contact_us.html')
     else:
         Contact.objects.create(name = request.POST['name'], contact_email = request.POST['contact_email'], message = request.POST['message'],)
-        messages.success(request, 'Successfully RegisterSent')
+        messages.success(request, 'Thank you, Information Successfully Sent!')
         return redirect('/')
 
 def welcome(request):
     if 'user_id' not in request.session:
-        message.error(request, 'Please log in or register')
-        return render ('login.html')
+        # messages.error(request, '')
+        context ={
+            "not_logged" : True
+        }
+        return render (request, 'home.html', context)
     else:
         logged_user = User.objects.get(id=request.session['user_id'])
         context = {
             'user' : logged_user
         }
-        return render(request, 'welcome.html', context)
+        return render(request, 'home.html', context)
 
 def logout(request):
-    request.session.clear()
+    if 'user_id' not in request.session:
+        messages.error(request, 'No User Logged in, Please Sign in or Register')
+        return render (request,'home.html')
+    else:
+        request.session.clear()
+        messages.success(request, 'Successfully Logged out')
+        return redirect('/')
 
-    return redirect('/')
+def click_test(request):
+    return render(request,'click_test.html')
+
+def gardens(request):
+    return render(request,"gardens.html")
+
+def garden_registration(request):
+    Garden.objects.create(garden_name=request.POST['garden_name'],garden_address=request.POST['garden_address'],plant_date=request.POST['plant_date'],plans=request.POST['plans'])
+    garden=Garden.objects.last()
+    garden_id=garden.id
+    return render(request, "gardens.html")
+
+def garden_request(request):
+    return render(request, "garden_request.html")

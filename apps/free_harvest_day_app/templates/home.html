@@ -9,10 +9,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .bg-garden {
+            background-color: rgba(72, 148, 72, 0.616);
+            background-size: cover;
+        }
+    </style>
     <title>Welcome Page</title>
 </head>
 
-<body>
+<body class="bg-garden">
     <div class="container">
         <div class="header d-inline">
             <div class="row">
@@ -20,11 +26,19 @@
                     <img src="{% static 'images/veggies.jpg'%}" alt="" class="harvest_logo">
                 </div>
                 <div class="col">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                     <h1>Free Harvest Day!</h1>
                 </div>
                 <div class="col">
                     <a href="/login">Login Here</a> |
-                    <a href="/register">Register Here</a>
+                    <a href="/register">Register Here</a> |
+                    <a href="/logout">Logout Here</a>
                 </div>
             </div>
         </div>
@@ -36,7 +50,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active f-size">
-                                    <a class="nav-link mr-4" href="#">Harvest Day <span
+                                    <a class="nav-link mr-4" href="/food_deserts">Food Deserts<span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item f-size">
@@ -46,16 +60,19 @@
                                     <a class="nav-link dropdown-toggle ml-5" href="/" id="navbarDropdown" role="button"
                                         data-toggle="dropdown">About Us</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown f-size">
-                                        <a class="dropdown-item" href="/about_us/dee">Dee</a>
-                                        <a class="dropdown-item" href="/about_us/qiana">Qiana</a>
-                                        <a class="dropdown-item" href="/about_us/kc">KC</a>
+                                        <a class="dropdown-item" href="/about_us/1">Dee</a>
+                                        <a class="dropdown-item" href="/about_us/2">Qiana</a>
+                                        <a class="dropdown-item" href="/about_us/3">KC</a>
                                     </div>
                                 </li>
                                 <li class="nav-item f-size">
                                     <a class="nav-link ml-5" href="/contact_us"> Contact Us </a>
                                 </li>
                                 <li class="nav-item f-size">
-                                    <a class="nav-link ml-5" href="/">Events</a>
+                                    <a class="nav-link ml-5" href="/events">Events</a>
+                                </li>
+                                <li class="nav-item f-size">
+                                    <a class="nav-link ml-5" href="/Gardens"> Gardens</a>
                                 </li>
                             </ul>
                         </div>
@@ -70,25 +87,56 @@
                 </button>
             </nav>
         </div>
-        <h1>Welcome</h1>
-        <h3>What are food deserts?</h3>
-        <p>Food deserts are defined as parts of the country vapid of fresh fruit, vegetables, and other healthful whole foods, usually found in impoverished areas. This is largely due to a lack of grocery stores, farmers’ markets, and healthy food providers.</p>
-        <p>
-            This has become a big problem because while food deserts are often short on whole food providers, especiallyfresh fruits and vegetables, instead, they are heavy on local quickie marts that provide a wealth of processed, sugar, and fat laden foods that are known contributors to our nation’s obesity epidemic. The food desert problem has in fact become such an issue that the USDA has outlined a map of our nation’s food deserts, which I saw on Mother Nature Network.
+        <center>
+            <h1>Welcome {{user.first_name}}!</h1>
+            <div class="container mt-3">
 
-        </p>
+                <img src="{% static 'images/group.jpg' %}" alt="Locally Grown" style="width: 300px;"">
+            
+            <header>
+                <p><span style="font: bold;">Call Us:(123)-456-7890</span>
+                </p>
+            </header>
+            <p>This Community Harvest Garden was created by three dynamic Full-Stack Developers Qiana, KC and Dee from
+                Coding Dojo.</p>
+            <p> Our mission is to bring Fresh Organic Produce to areas of the city which are pleagued by food deserts.
+                We realize there are families that can't afford to purchase these necessities and by placing these
+                gardens in the areas mentioned we'd be giving our communities a chance to grow, learn also care for the
+                produce which they will be able to harvest and bring home to feed their households.</p>
+            <p>We started the ground work by mapping our areas in the city that are affected by this, however we are
+                looking to further our search with the help of any and eveyone that wants to get involved in helping us
+                locate and or volunteer in our effort to help our local communities.
+            </p>
+            <p>If this is idea sounds like something you'd like to be apart of please click below:</p>
 
-
-
-
-
+            <a href="/register" class="btn btn-primary">Click here!</a>
+        </center>
     </div>
 
-
-
-
-
-
+    </div>
+    {% if not_logged %}
+    <!-- modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-show="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Not User Logged in</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please log in or register</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- end modal -->
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -100,6 +148,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#myModal').modal();
+        })
+    </script>
 </body>
 
 </html>
