@@ -15,4 +15,8 @@ urlpatterns = [
     url(r'^process_contact$', views.process_contact),
     url(r'^welcome$', views.welcome),
     url(r'^logout$', views.logout),
+    url(r'^click_test$',views.click_test),
+    url(r'^gardens$',views.gardens),
+    url(r'^garden_registration$',views.garden_registration),
+    url(r'^garden_request$',views.garden_request),
 ]

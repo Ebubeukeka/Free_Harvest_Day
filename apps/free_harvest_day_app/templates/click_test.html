@@ -6,18 +6,18 @@
         <title>Document</title>
         <meta name="description" content="">
         {% load static %}
-        <link rel="stylesheet" href="{% static 'indiv_garden_info/css/click_test.css' %}">
+        <link rel="stylesheet" href="{% static 'css/click_test.css' %}">
     </head>
 
     <body> <!--whole browser page-->
-        <div id="a"><img src="{% static 'indiv_garden_info/images/map.png' %}"></div>
+        <div id="a"><img src="{% static 'images/map.png' %}"></div>
 
         <div>
             <form action="/garden_registration" method="POST">
                 {% csrf_token %}
                 <span class="close" title="Close PopUp">&times;</span>
                 <!--need to accept downloaded picture-->
-                <!-- <img class="pop_up_pic" src="{% static 'indiv_garden_info/images/bigGreen.jpg' %}" alt="Raised Garden"> -->
+                <!-- <img class="pop_up_pic" src="{% static 'images/bigGreen.jpg' %}" alt="Raised Garden"> -->
                 <h3>Register Garden/Garden Space</h3>
                 <input type="text" name="garden_name" placeholder="Enter Garden's Name">
                 <input type="text" name="garden_address" placeholder="Enter Garden's Address">
@@ -31,6 +31,6 @@
 
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="{% static 'indiv_garden_info/js/click_test.js' %}"></script>
+        <script src="{% static 'js/click_test.js' %}"></script>
     </body>
 </html>

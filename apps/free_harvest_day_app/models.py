@@ -58,3 +58,12 @@ class Staff(models.Model):
     occupation = models.CharField(max_length=255)
     linkedin = models.CharField(max_length=255)
     profile_pic_url = models.CharField(max_length=255)
+
+class Garden(models.Model):
+    garden_name = models.CharField(max_length=45)
+    garden_address = models.CharField(max_length=45)
+    ward_num = models.IntegerField()
+    plant_date = models.DateTimeField()
+    plans = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

@@ -96,3 +96,18 @@ def logout(request):
         request.session.clear()
         messages.success(request, 'Successfully Logged out')
         return redirect('/')
+
+def click_test(request):
+    return render(request,'click_test.html')
+
+def gardens(request):
+    return render(request,"gardens.html")
+
+def garden_registration(request):
+    Garden.objects.create(garden_name=request.POST['garden_name'],garden_address=request.POST['garden_address'],plant_date=request.POST['plant_date'],plans=request.POST['plans'])
+    garden=Garden.objects.last()
+    garden_id=garden.id
+    return render(request, "gardens.html")
+
+def garden_request(request):
+    return render(request, "garden_request.html")

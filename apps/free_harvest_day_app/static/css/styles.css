@@ -1,10 +1,10 @@
-* {
+/* * {
     outline: 1px dotted red;
     vertical-align: top;
     box-sizing:border-box;
-    /* font-family: sans-serif; */
+    font-family: sans-serif; */
 }
-
+/* 
 body {
     /* background: #cccccc url(../images/spinach.jpg) center center no-repeat); */
     background-image: url(../images/spinach.jpg);
@@ -12,7 +12,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 h1{
     color: white;
